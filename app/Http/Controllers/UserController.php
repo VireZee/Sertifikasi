@@ -9,12 +9,12 @@ use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
-    function register()
+    public function register()
     {
         $data['title'] = 'Register';
         return view('user/register', $data);
     }
-    function register_action(Request $request)
+    public function register_action(Request $request)
     {
         $request->validate([
             'username' => 'required|unique:users',
@@ -27,12 +27,12 @@ class UserController extends Controller
         $user->save();
         return redirect()->route('login')->with('success', 'Registration success. Please login!');
     }
-    function login()
+    public function login()
     {
         $data['title'] = 'Login';
         return view('user/login', $data);
     }
-    function login_action(Request $request)
+    public function login_action(Request $request)
     {
         $request->validate([
             'username' => 'required',
@@ -40,13 +40,13 @@ class UserController extends Controller
         ]);
         if (Auth::attempt(['username' => $request->username, 'password' => $request->password])) {
             $request->session()->regenerate();
-            return redirect('catalog');
+            return redirect()->intended('catalog');
         }
         return back()->withErrors([
             'password' => 'Wrong username or password',
         ]);
     }
-    function logout(Request $request)
+    public function logout(Request $request)
     {
         Auth::logout();
         $request->session()->invalidate();

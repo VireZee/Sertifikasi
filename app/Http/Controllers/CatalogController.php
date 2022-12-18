@@ -8,5 +8,6 @@ class CatalogController extends Controller
 {
     function index()
     {
+        return view('catalog', ['title' => 'Book']);
     }
 }

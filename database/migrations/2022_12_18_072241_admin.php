@@ -15,8 +15,8 @@ return new class extends Migration
     {
         Schema::create('admins', function (Blueprint $table) {
             $table->id();
-            $table->string('username')->unique();
-            $table->string('password');
+            $table->string('username_admin')->unique();
+            $table->string('password_admin');
             $table->timestamps();
         });
     }

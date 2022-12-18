@@ -17,12 +17,12 @@ class AdminController extends Controller
     function register_action(Request $request)
     {
         $request->validate([
-            'username' => 'required|unique:admins',
-            'password' => 'required',
+            'username_admin' => 'required|unique:admins',
+            'password_admin' => 'required',
         ]);
         $user = new Admin([
-            'username' => $request->username,
-            'password' => Hash::make($request->password),
+            'username_admin' => $request->username,
+            'password_admin' => Hash::make($request->password),
         ]);
         $user->save();
         return redirect()->route('login')->with('success', 'Registration success. Please login!');
@@ -35,15 +35,15 @@ class AdminController extends Controller
     function login_action(Request $request)
     {
         $request->validate([
-            'username' => 'required',
-            'password' => 'required',
+            'username_admin' => 'required',
+            'password_admin' => 'required',
         ]);
-        if (Auth::attempt(['username' => $request->username, 'password' => $request->password])) {
+        if (Auth::attempt(['username.admin' => $request->username, 'password_admin' => $request->password])) {
             $request->session()->regenerate();
-            return redirect('catalogadmin');
+            return redirect()->intended('catalogadmin');
         }
         return back()->withErrors([
-            'password' => 'Wrong username or password',
+            'password_admin' => 'Wrong username or password',
         ]);
     }
     function logout(Request $request)

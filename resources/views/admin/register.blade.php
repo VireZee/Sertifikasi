@@ -11,11 +11,11 @@
             @csrf
             <div class="mb-3">
                 <label>Username <span class="text-danger">*</span></label>
-                <input class="form-control" type="username" name="username" value="{{ old('username') }}" />
+                <input class="form-control" type="username" name="username_admin" value="{{ old('username') }}" />
             </div>
             <div class="mb-3">
                 <label>Password <span class="text-danger">*</span></label>
-                <input class="form-control" type="password" name="password" />
+                <input class="form-control" type="password" name="password_admin" />
             </div>
             <div class="mb-3">
                 <button class="btn btn-primary">Register</button>
