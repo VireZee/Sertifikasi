@@ -14,12 +14,14 @@ return new class extends Migration
     public function up()
     {
         Schema::create('users', function (Blueprint $table) {
-            $table->id('user_id');
+            $table->id();
             $table->string('username')->unique();
             $table->string('password');
-            $table->unsignedInteger('buku_id');
-            $table->foreign('buku_id')->references('catalog_id')->on('catalogs');
+            $table->unsignedBigInteger('buku_id');
             $table->timestamps();
+        });
+        Schema::table('users', function($table) {
+            $table->foreign('buku_id')->references('id')->on('catalogs')->onCascade('delete');
         });
     }
 

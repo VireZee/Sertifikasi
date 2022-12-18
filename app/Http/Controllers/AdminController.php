@@ -12,7 +12,7 @@ class AdminController extends Controller
     function register()
     {
         $data['title'] = 'Register';
-        return view('user/register', $data);
+        return view('admin/register', $data);
     }
     function register_action(Request $request)
     {
@@ -30,7 +30,7 @@ class AdminController extends Controller
     function login()
     {
         $data['title'] = 'Login';
-        return view('user/login', $data);
+        return view('admin/login', $data);
     }
     function login_action(Request $request)
     {
@@ -40,7 +40,7 @@ class AdminController extends Controller
         ]);
         if (Auth::attempt(['username' => $request->username, 'password' => $request->password])) {
             $request->session()->regenerate();
-            return redirect()->intended('catalogadmin');
+            return redirect('catalogadmin');
         }
         return back()->withErrors([
             'password' => 'Wrong username or password',

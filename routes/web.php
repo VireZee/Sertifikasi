@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\CatalogController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -28,4 +29,5 @@ Route::post('registeradmin', [AdminController::class, 'register_action'])->name(
 Route::get('loginadmin', [AdminController::class, 'login'])->name('login.a');
 Route::post('loginadmin', [AdminController::class, 'login_action'])->name('login.action.a');
 Route::get('logoutadmin', [AdminController::class, 'logout'])->name('logout.a');
-// Route::get('catalog', [CatalogController::class, 'index'])->name('catalog');
+Route::get('catalog', [CatalogController::class, 'index'])->name('catalog');
+Route::get('catalogadmin', [CatalogController::class, 'index'])->name('catalog.a');

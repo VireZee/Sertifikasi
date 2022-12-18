@@ -40,7 +40,7 @@ class UserController extends Controller
         ]);
         if (Auth::attempt(['username' => $request->username, 'password' => $request->password])) {
             $request->session()->regenerate();
-            return redirect()->intended('catalog');
+            return redirect('catalog');
         }
         return back()->withErrors([
             'password' => 'Wrong username or password',
