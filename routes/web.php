@@ -33,3 +33,4 @@ Route::get('logoutadmin', [AdminController::class, 'logout'])->name('logout.a');
 // Route::get('catalog', [CatalogController::class, 'index'])->name('catalog');
 Route::get('catalogadmin', [CatalogController::class, 'index'])->name('catalog.a');
 Route::post('catalogadmin/store', [CatalogController::class, 'store']);
+Route::get('catalogadmin/{id}', [CatalogController::class, 'destroy']);

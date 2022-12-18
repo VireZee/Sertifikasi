@@ -15,7 +15,23 @@ class CatalogController extends Controller
     }
     function store(Request $req)
     {
-        // return redirect()->intended('catalogadmin');
-        dd($req->all());
+        $req->validate([
+            'judul' => 'required|unique:catalogs',
+            'halaman' => 'required',
+            'penerbit' => 'required'
+        ]);
+        $cats = new Catalog([
+            'judul' => $req->judul,
+            'halaman' => $req->halaman,
+            'penerbit' => $req->penerbit
+        ]);
+        $cats->save();
+        return redirect()->intended('catalogadmin');
+    }
+    function destroy($id)
+    {
+        $cats = Catalog::find($id);
+        $cats->delete();
+        return redirect()->intended('catalogadmin');
     }
 }

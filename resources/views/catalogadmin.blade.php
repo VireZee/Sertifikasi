@@ -17,6 +17,7 @@
                 <th>Judul</th>
                 <th>Halaman</th>
                 <th>Penerbit</th>
+                <th>Aksi</th>
             </tr>
         </thead>
         <tbody>
@@ -25,6 +26,10 @@
                     <td>{{ $c->judul }}</td>
                     <td>{{ $c->halaman }}</td>
                     <td>{{ $c->penerbit }}</td>
+                    <td>
+                        <form action="">
+                            <a href="catalogadmin/{{ $c->id }}">Delete</a>
+                        </form></td>
                 </tr>
             @endforeach
         </tbody>

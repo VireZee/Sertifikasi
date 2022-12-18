@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('catalogs', function (Blueprint $table) {
             $table->id();
-            $table->string('nama_buku')->unique();
+            $table->string('judul')->unique();
             $table->string('halaman');
             $table->string('penerbit');
             $table->timestamps();
