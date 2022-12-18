@@ -53,4 +53,9 @@ class UserController extends Controller
         $request->session()->regenerateToken();
         return redirect('/');
     }
+    function pinjem(Request $req)
+    {
+        $user = User::all();
+        dd($user);
+    }
 }

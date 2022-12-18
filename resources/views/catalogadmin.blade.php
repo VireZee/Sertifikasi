@@ -4,6 +4,7 @@
     @auth
     <a class="btn btn-danger" href="{{ route('logout.a') }}">Logout</a>
     @endauth
+    <a class="btn btn-danger" href="{{ route('home') }}">Back</a>
 </div>
 <form action="catalogadmin/store" method="POST">
     @csrf

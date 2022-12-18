@@ -17,8 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('username')->unique();
             $table->string('password');
-            // $table->unsignedBigInteger('buku_id');
-            // $table->foreign('buku_id')->references('id')->on('catalogs')->onCascade('delete');
+            $table->foreignId('catalog_id')->nullable()->constrained('catalogs')->onDelete('cascade');
             $table->timestamps();
         });
     }

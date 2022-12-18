@@ -34,4 +34,10 @@ class CatalogController extends Controller
         $cats->delete();
         return redirect()->intended('catalogadmin');
     }
+    function read()
+    {
+        $cats = Catalog::all();
+        $data['title'] = 'Catalog List';
+        return view('catalog', $data, compact(['cats']));
+    }
 }
