@@ -15,6 +15,7 @@ class CatalogController extends Controller
     }
     function store(Request $req)
     {
-        return redirect('catalogadmin');
+        // return redirect()->intended('catalogadmin');
+        dd($req->all());
     }
 }
