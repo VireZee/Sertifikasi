@@ -21,11 +21,11 @@ class AdminController extends Controller
             'password_admin' => 'required',
         ]);
         $user = new Admin([
-            'username_admin' => $request->username,
-            'password_admin' => Hash::make($request->password),
+            'username_admin' => $request->username_admin,
+            'password_admin' => Hash::make($request->password_admin),
         ]);
         $user->save();
-        return redirect()->route('login')->with('success', 'Registration success. Please login!');
+        return redirect()->route('login.a')->with('success', 'Registration success. Please login!');
     }
     function login()
     {
@@ -38,7 +38,7 @@ class AdminController extends Controller
             'username_admin' => 'required',
             'password_admin' => 'required',
         ]);
-        if (Auth::attempt(['username.admin' => $request->username, 'password_admin' => $request->password])) {
+        if (Auth::attempt(['username_admin' => $request->username_admin, 'password_admin' => $request->password_admin])) {
             $request->session()->regenerate();
             return redirect()->intended('catalogadmin');
         }
