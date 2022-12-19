@@ -5,6 +5,7 @@
     <a class="btn btn-danger" href="{{ route('logout.a') }}">Logout</a>
     @endauth
     <a class="btn btn-danger" href="{{ route('home') }}">Back</a>
+    <a class="btn btn-danger" href="{{ route('loan') }}">Loan Management</a>
 </div>
 <form action="catalogadmin/store" method="POST">
     @csrf

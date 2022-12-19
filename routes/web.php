@@ -3,6 +3,7 @@
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\CatalogController;
+use App\Http\Controllers\LoanController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -35,3 +36,6 @@ Route::get('catalogadmin', [CatalogController::class, 'index'])->name('catalog.a
 Route::post('catalogadmin/store', [CatalogController::class, 'store']);
 Route::get('catalogadmin/{id}', [CatalogController::class, 'destroy']);
 Route::get('logoutadmin', [AdminController::class, 'logout'])->name('logout.a');
+Route::get('loan', [LoanController::class, 'index'])->name('loan');
+Route::get('loan/{id}', [LoanController::class, 'destroy']);
+Route::post('loan/store', [LoanController::class, 'store']);
